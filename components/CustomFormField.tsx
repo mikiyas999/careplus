@@ -70,7 +70,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
           <textarea
             placeholder={props.placeholder}
             {...field}
-            className="shad-textArea"
+            className="shad-textArea p-4 w-full"
             disabled={props.disabled}
           />
         </FormControl>
@@ -114,16 +114,16 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
             alt="user"
             className="ml-2"
           />
-          {/* <FormControl>
+          <FormControl>
             <ReactDatePicker
               showTimeSelect={props.showTimeSelect ?? false}
               selected={field.value}
-              onChange={(date: Date) => field.onChange(date)}
+              onChange={(date: any) => field.onChange(date)}
               timeInputLabel="Time:"
               dateFormat={props.dateFormat ?? "MM/dd/yyyy"}
               wrapperClassName="date-picker"
             />
-          </FormControl> */}
+          </FormControl>
         </div>
       );
     case FormFieldType.SELECT:
