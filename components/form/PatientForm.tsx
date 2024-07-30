@@ -12,6 +12,7 @@ import SubmitButton from "../SubmitButton";
 import "react-phone-number-input/style.css";
 import { useRouter } from "next/navigation";
 import { UserFormValidation } from "@/lib/validation";
+import { createUser } from "@/lib/actions/patient";
 
 const PatientForm = () => {
   const router = useRouter();
@@ -25,6 +26,7 @@ const PatientForm = () => {
       phone: "",
     },
   });
+
   async function onSubmit(values: z.infer<typeof UserFormValidation>) {
     console.log(values);
     setIsLoading(true);
@@ -35,15 +37,16 @@ const PatientForm = () => {
         email: values.email,
         phone: values.phone,
       };
-      // const newUser = await createUser(user)
-      //   if (newUser) {
-      //     router.push(`/patients/${newUser.$id}/register`);
-      //   }
+      const newUser = await createUser(user);
+      if (newUser) {
+        router.push(`/patients/${newUser.$id}/register`);
+      }
     } catch (error) {
       console.log(error);
     }
     setIsLoading(false);
   }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
