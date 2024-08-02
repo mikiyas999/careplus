@@ -32,7 +32,6 @@ const RegisterForm = ({ user }: { user: User }) => {
 
   const form = useForm<z.infer<typeof PatientFormValidation>>({
     resolver: zodResolver(PatientFormValidation),
-    // @ts-ignore
     defaultValues: {
       ...PatientFormDefaultValues,
       name: user.name,
@@ -42,7 +41,6 @@ const RegisterForm = ({ user }: { user: User }) => {
   });
 
   async function onSubmit(values: z.infer<typeof PatientFormValidation>) {
-    console.log(values);
     setIsLoading(true);
 
     // Store file info in form data as
@@ -87,6 +85,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         privacyConsent: values.privacyConsent,
       };
       console.log(patient);
+      //@ts-ignore
       const newPatient = await registerPatient(patient);
       console.log(newPatient);
       if (newPatient) {
