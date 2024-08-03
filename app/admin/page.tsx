@@ -20,8 +20,8 @@ const Admin = async () => {
             alt="logo"
             className="h-8 w-fit"
           />
-          <p className="text-16-semibold"> Admin Dashboard</p>
         </Link>
+        <p className="text-16-semibold"> Admin Dashboard</p>
       </header>
       <main className="admin-main">
         <section className="w-full space-y-4">
