@@ -29,7 +29,7 @@ const PatientForm = () => {
 
   async function onSubmit(values: z.infer<typeof UserFormValidation>) {
     setIsLoading(true);
-    console.log(values);
+
     try {
       const user = {
         name: values.name,
@@ -40,7 +40,6 @@ const PatientForm = () => {
       if (newUser) {
         router.push(`/patients/${newUser.$id}/register`);
       }
-      console.log(newUser);
     } catch (error) {
       console.log(error);
     }
