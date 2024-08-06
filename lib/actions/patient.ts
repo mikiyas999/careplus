@@ -68,7 +68,6 @@ export const registerPatient = async ({
         );
 
       file = await storage.createFile(BUCKET_ID!, ID.unique(), inputFile);
-      console.log("file:", file);
     }
 
     // Create new patient document -> https://appwrite.io/docs/references/cloud/server-nodejs/databases#createDocument
@@ -84,7 +83,6 @@ export const registerPatient = async ({
         ...patient,
       }
     );
-    console.log("new patient:", newPatient);
     return parseStringify(newPatient);
   } catch (error) {
     console.error("An error occurred while creating a new patient:", error);
